@@ -1,0 +1,110 @@
+/* Variables de color */
+:root {
+    --color-primary: #1e40af; 
+    --color-secondary: #fcd34d; 
+    --color-bg: #f9fafb; 
+    --color-text: #1f2937;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    margin: 0;
+}
+
+/*ESTILOS BASE (MOBILE-FIRST POR DEFAULT)*/
+
+/* Este contenedor es el principal y debe volverse Flexbox en desktop */
+.main-layout {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.header {
+    background-color: var(--color-primary);
+    padding: 15px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-menu ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Barra lateral. Por defecto ocupa todo el ancho y tiene margen inferior */
+.sidebar {
+    background-color: #e5e7eb;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px; 
+}
+
+/* ÁREA DE CONTENIDO PRINCIPAL - Por defecto va debajo del sidebar */
+.content-area {
+    padding-bottom: 20px;
+}
+
+/* Tarjetas de Noticias: En móvil, apiladas verticalmente (COLUMNA) recuerda cambiarlas despues en horizontal*/
+.news-cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.news-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid var(--color-secondary);
+}
+
+
+/* APLICAR TUS CAMBIOS AQUÍ. ESTE ES EL PUNTO DE RUPTURA: MEDIA QUERY */
+
+
+/* ¿QUÉ HACER?: Aplica la lógica aquí para transformar el layout a 2 columnas */
+@media (min-width: 768px) {
+    
+    /* A. SINERGIA #1: Modifica .main-layout para activar 2 columnas (Horizontal) */
+    .main-layout {
+        /* APLICAR AQUÍ: display, flex-direction, gap, align-items */
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    /* B. MANEJO DE ANCHOS: Define el sidebar con ancho fijo y el contenido flexible */
+    .sidebar {
+        /* APLICAR AQUÍ: flex (para fijar ancho a 250px) y margin-bottom: 0 */
+        flex: 0 0 250px;
+        margin-bottom: 0;
+    }
+
+    .content-area {
+        /* APLICAR AQUÍ: flex (para ocupar el espacio restante) */
+        flex: 1 1 auto;
+    }
+
+    /* C. SINERGIA #2: Adapta las tarjetas de noticias a una fila de 2 */
+    .news-cards-wrapper {
+        /* APLICAR AQUÍ: flex-direction (para pasar a horizontal), flex-wrap */
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .news-card {
+        /* APLICAR AQUÍ: flex (para que 2 quepan en la fila) */
+        flex: 1 1 calc(50% - 10px);
+    }
+}
