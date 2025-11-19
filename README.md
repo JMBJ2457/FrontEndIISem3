@@ -9,7 +9,7 @@ Pequeño resumen de lo que se hizo:
 
 Cómo probarlo rápido:
 
-- Accede a la pagina a travez del link: 
+- Accede a la pagina a travez del link:  https://jmbj2457.github.io/FrontEndIISem3/
 - Abre el inspect de tu navegador.
 - Reduce la ventana (<768px) para ver el modo móvil.
 - Aumenta la ventana (>=768px)para ver el modo escritorio (2 columnas y tarjetas en 2 por fila).
